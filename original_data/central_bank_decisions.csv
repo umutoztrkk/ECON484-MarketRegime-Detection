@@ -1,0 +1,63 @@
+date,bank,decision,rate_change_bps,notes
+2015-03-18,FED,hold,0,Forward guidance shift
+2015-12-16,FED,hike,25,First hike since 2006
+2016-12-14,FED,hike,25,Second hike cycle
+2017-03-15,FED,hike,25,Tightening cycle
+2017-06-14,FED,hike,25,Tightening cycle
+2017-12-13,FED,hike,25,Tightening cycle
+2018-03-21,FED,hike,25,Tightening cycle
+2018-06-13,FED,hike,25,Tightening cycle
+2018-09-26,FED,hike,25,Tightening cycle
+2018-12-19,FED,hike,25,Last hike - market selloff
+2019-07-31,FED,cut,25,Insurance cut
+2019-09-18,FED,cut,25,Insurance cut
+2019-10-30,FED,cut,25,Insurance cut
+2020-03-03,FED,cut,50,Emergency COVID cut
+2020-03-15,FED,cut,100,Emergency COVID cut
+2022-03-16,FED,hike,25,Inflation tightening begins
+2022-05-04,FED,hike,50,Aggressive tightening
+2022-06-15,FED,hike,75,Largest since 1994
+2022-07-27,FED,hike,75,Continued tightening
+2022-09-21,FED,hike,75,Continued tightening
+2022-11-02,FED,hike,75,Continued tightening
+2022-12-14,FED,hike,50,Slowdown signal
+2023-02-01,FED,hike,25,Near terminal rate
+2023-03-22,FED,hike,25,Post-SVB hike
+2023-05-03,FED,hike,25,Final hike
+2023-09-20,FED,hold,0,Pause
+2024-09-18,FED,cut,50,First cut of new cycle
+2024-11-07,FED,cut,25,Continued easing
+2024-12-18,FED,cut,25,Continued easing
+2015-12-03,ECB,cut,-10,Deposit rate cut
+2016-03-10,ECB,cut,-10,Further easing
+2019-09-12,ECB,cut,-10,Tiering introduced
+2020-03-12,ECB,hold,0,Pandemic QE announced
+2022-07-21,ECB,hike,50,First hike in 11 years
+2022-09-08,ECB,hike,75,Aggressive tightening
+2022-10-27,ECB,hike,75,Continued tightening
+2022-12-15,ECB,hike,50,Continued tightening
+2023-02-02,ECB,hike,50,Continued tightening
+2023-03-16,ECB,hike,50,Continued tightening
+2023-05-04,ECB,hike,25,Near peak
+2023-06-15,ECB,hike,25,Final hike signal
+2024-06-06,ECB,cut,25,First cut of new cycle
+2024-09-12,ECB,cut,25,Continued easing
+2016-01-19,TCMB,cut,-25,Easing cycle
+2016-02-23,TCMB,cut,-25,Easing cycle
+2018-06-07,TCMB,hike,125,Emergency TL defense
+2018-07-24,TCMB,hike,100,TL crisis response
+2018-09-13,TCMB,hike,625,Emergency mega hike - TL crisis
+2019-07-25,TCMB,cut,-25,Easing begins
+2019-09-12,TCMB,cut,-325,Aggressive easing
+2020-05-21,TCMB,cut,-50,COVID easing
+2021-03-18,TCMB,hike,200,Inflation response
+2021-09-23,TCMB,cut,-100,Political pressure cut - lira crash
+2021-10-21,TCMB,cut,-200,Continued unorthodox cuts
+2021-11-18,TCMB,cut,-100,Continued unorthodox cuts
+2021-12-16,TCMB,cut,-100,Lira historic low
+2023-06-22,TCMB,hike,650,Post-election orthodox return
+2023-07-20,TCMB,hike,250,Continued normalization
+2023-08-24,TCMB,hike,750,Continued normalization
+2023-09-21,TCMB,hike,500,Continued normalization
+2024-03-21,TCMB,hike,500,Final tightening
+2024-11-21,TCMB,cut,-250,New easing cycle

@@ -62,3 +62,6 @@ entry_id,date,model_type,index,n_clusters,covariance_type,scaler,features_used,s
 61,2026-06-12,ks_drift,bist100,na,na,na,volatility_60,na,na,na,0.5406,0.0,ks_trade_war_vs_post_2022_YES
 62,2026-06-12,ks_drift,bist100,na,na,na,log_return,na,na,na,0.0955,0.004779,ks_trade_war_vs_post_2022_YES
 63,2026-06-12,ks_drift,bist100,na,na,na,range_pct,na,na,na,0.1631,0.0,ks_trade_war_vs_post_2022_YES
+64,2026-06-13,crosstab_vv,sp500,3,full,RobustScaler,gmm_regime_label,na,na,na,37.8999,0.0,crosstab_chi2_FED_significant
+65,2026-06-13,crosstab_vv,dax,3,full,RobustScaler,gmm_regime_label,na,na,na,40.879,0.0,crosstab_chi2_ECB_significant
+66,2026-06-13,crosstab_vv,bist100,3,full,RobustScaler,gmm_regime_label,na,na,na,14.6717,0.000652,crosstab_chi2_TCMB_significant
