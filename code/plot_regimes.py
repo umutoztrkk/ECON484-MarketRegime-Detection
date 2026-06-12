@@ -108,21 +108,24 @@ def plot_regimes(df: pd.DataFrame, regime_col: str, market: str,
 def main():
     kmeans = pd.read_csv(DATA_DIR / "kmeans_results.csv", parse_dates=["Date"])
     gmm    = pd.read_csv(DATA_DIR / "gmm_results.csv",    parse_dates=["Date"])
+    gmm_final = pd.read_csv(DATA_DIR / "gmm_final_results.csv", parse_dates=["Date"])
 
-    # Close'u features CSV'den al (orada kesinlikle var)
     features = pd.read_csv(DATA_DIR / "all_markets_features.csv", parse_dates=["Date"])
     close_df = features[["Date", "market", "Close"]].drop_duplicates()
 
-    kmeans = kmeans.merge(close_df, on=["Date", "market"], how="left")
-    gmm    = gmm.merge(close_df, on=["Date", "market"], how="left")
+    kmeans    = kmeans.merge(close_df, on=["Date", "market"], how="left")
+    gmm       = gmm.merge(close_df, on=["Date", "market"], how="left")
+    gmm_final = gmm_final.merge(close_df, on=["Date", "market"], how="left")
 
     for market in ["sp500", "dax", "bist100"]:
         plot_regimes(kmeans, "kmeans_regime", market,
-                     "K-Means", f"kmeans_{market}.png")
+                     "K-Means (k=2)", f"kmeans_{market}.png")
         plot_regimes(gmm, "gmm_regime", market,
-                     "GMM (BIC-optimal)", f"gmm_{market}.png")
+                     "GMM BIC-optimal (k=6)", f"gmm_k6_{market}.png")
+        plot_regimes(gmm_final, "gmm_regime", market,
+                     "GMM Final (k=3)", f"gmm_final_{market}.png")
 
-    print("\nAll 6 plots saved → plots/")
+    print("\nAll 9 plots saved → plots/")
 
 
 if __name__ == "__main__":
