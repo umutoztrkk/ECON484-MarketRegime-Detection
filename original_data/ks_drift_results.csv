@@ -1,0 +1,37 @@
+feature,window_1,window_2,n1,n2,ks_stat,ks_pvalue,drift,market,comparison
+volatility_20,pre_2020,post_2022,1482,953,0.3187,0.0,YES,sp500,Pre-COVID vs Post-FED Hike
+volatility_60,pre_2020,post_2022,1482,953,0.331,0.0,YES,sp500,Pre-COVID vs Post-FED Hike
+log_return,pre_2020,post_2022,1482,953,0.0763,0.002175,YES,sp500,Pre-COVID vs Post-FED Hike
+range_pct,pre_2020,post_2022,1482,953,0.2269,0.0,YES,sp500,Pre-COVID vs Post-FED Hike
+volatility_20,pre_2020,covid,1482,219,0.5716,0.0,YES,sp500,Pre-COVID vs COVID Crash
+volatility_60,pre_2020,covid,1482,219,0.7815,0.0,YES,sp500,Pre-COVID vs COVID Crash
+log_return,pre_2020,covid,1482,219,0.1918,1e-06,YES,sp500,Pre-COVID vs COVID Crash
+range_pct,pre_2020,covid,1482,219,0.4187,0.0,YES,sp500,Pre-COVID vs COVID Crash
+volatility_20,trade_war,post_2022,502,953,0.2596,0.0,YES,sp500,Trade War Era vs Post-2022
+volatility_60,trade_war,post_2022,502,953,0.2067,0.0,YES,sp500,Trade War Era vs Post-2022
+log_return,trade_war,post_2022,502,953,0.0576,0.214382,NO,sp500,Trade War Era vs Post-2022
+range_pct,trade_war,post_2022,502,953,0.1693,0.0,YES,sp500,Trade War Era vs Post-2022
+volatility_20,pre_2020,post_2022,1488,967,0.1801,0.0,YES,dax,Pre-COVID vs Post-FED Hike
+volatility_60,pre_2020,post_2022,1488,967,0.1597,0.0,YES,dax,Pre-COVID vs Post-FED Hike
+log_return,pre_2020,post_2022,1488,967,0.0364,0.40756,NO,dax,Pre-COVID vs Post-FED Hike
+range_pct,pre_2020,post_2022,1488,967,0.1034,6e-06,YES,dax,Pre-COVID vs Post-FED Hike
+volatility_20,pre_2020,covid,1488,219,0.5771,0.0,YES,dax,Pre-COVID vs COVID Crash
+volatility_60,pre_2020,covid,1488,219,0.683,0.0,YES,dax,Pre-COVID vs COVID Crash
+log_return,pre_2020,covid,1488,219,0.135,0.001694,YES,dax,Pre-COVID vs COVID Crash
+range_pct,pre_2020,covid,1488,219,0.3008,0.0,YES,dax,Pre-COVID vs COVID Crash
+volatility_20,trade_war,post_2022,502,967,0.1504,1e-06,YES,dax,Trade War Era vs Post-2022
+volatility_60,trade_war,post_2022,502,967,0.2503,0.0,YES,dax,Trade War Era vs Post-2022
+log_return,trade_war,post_2022,502,967,0.0324,0.864515,NO,dax,Trade War Era vs Post-2022
+range_pct,trade_war,post_2022,502,967,0.0487,0.396417,NO,dax,Trade War Era vs Post-2022
+volatility_20,pre_2020,post_2022,1479,947,0.3927,0.0,YES,bist100,Pre-COVID vs Post-FED Hike
+volatility_60,pre_2020,post_2022,1479,947,0.5964,0.0,YES,bist100,Pre-COVID vs Post-FED Hike
+log_return,pre_2020,post_2022,1479,947,0.1064,4e-06,YES,bist100,Pre-COVID vs Post-FED Hike
+range_pct,pre_2020,post_2022,1479,947,0.2354,0.0,YES,bist100,Pre-COVID vs Post-FED Hike
+volatility_20,pre_2020,covid,1479,215,0.2447,0.0,YES,bist100,Pre-COVID vs COVID Crash
+volatility_60,pre_2020,covid,1479,215,0.4003,0.0,YES,bist100,Pre-COVID vs COVID Crash
+log_return,pre_2020,covid,1479,215,0.1152,0.012534,YES,bist100,Pre-COVID vs COVID Crash
+range_pct,pre_2020,covid,1479,215,0.1555,0.000197,YES,bist100,Pre-COVID vs COVID Crash
+volatility_20,trade_war,post_2022,497,947,0.3081,0.0,YES,bist100,Trade War Era vs Post-2022
+volatility_60,trade_war,post_2022,497,947,0.5406,0.0,YES,bist100,Trade War Era vs Post-2022
+log_return,trade_war,post_2022,497,947,0.0955,0.004779,YES,bist100,Trade War Era vs Post-2022
+range_pct,trade_war,post_2022,497,947,0.1631,0.0,YES,bist100,Trade War Era vs Post-2022
