@@ -38,16 +38,22 @@ def build(df: pd.DataFrame, market: str) -> pd.DataFrame:
     for col in ["Close", "Volume", "High", "Low"]:
         d[col] = pd.to_numeric(d[col], errors="coerce")
 
-    d["log_return"]      = np.log(d["Close"] / d["Close"].shift(1))
-    d["volatility_20"]   = d["log_return"].rolling(20).std()
-    d["volatility_60"]   = d["log_return"].rolling(60).std()
-    d["range_pct"]       = (d["High"] - d["Low"]) / d["Close"]
-    d["volume_ma20"]     = d["Volume"].rolling(20).mean()
-    d["volume_ratio"]    = d["Volume"] / d["volume_ma20"]
-    d["return_ma5"]      = d["log_return"].rolling(5).mean()
-    d["return_ma20"]     = d["log_return"].rolling(20).mean()
+    d["log_return"]       = np.log(d["Close"] / d["Close"].shift(1))
+    d["volatility_20"]    = d["log_return"].rolling(20).std()
+    d["volatility_60"]    = d["log_return"].rolling(60).std()
+    d["range_pct"]        = (d["High"] - d["Low"]) / d["Close"]
+    d["volume_ma20"]      = d["Volume"].rolling(20).mean()
+    d["volume_ratio"]     = d["Volume"] / d["volume_ma20"]
+    d["return_ma5"]       = d["log_return"].rolling(5).mean()
+    d["return_ma20"]      = d["log_return"].rolling(20).mean()
     d["volatility_ratio"] = d["volatility_20"] / d["volatility_60"]
-    d["market"] = market
+    d["up_vol_ratio"]     = (
+        d["log_return"].clip(lower=0).rolling(20).std() /
+        (d["log_return"].rolling(20).std() + 1e-8)
+    )
+    d["signed_vol20"]     = d["return_ma20"] * d["volatility_20"]
+    d["drawdown_60"]      = d["Close"] / d["Close"].rolling(60).max() - 1
+    d["market"]           = market
 
     d = d.dropna().reset_index(drop=True)
     return d
