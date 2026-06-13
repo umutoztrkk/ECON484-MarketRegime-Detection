@@ -1,6 +1,10 @@
 # Market Regimes, Volatility & Macroeconomic Shocks
 ### ECON484 — Machine Learning in Economics | Final Project Report
-**Team 3 &nbsp;|&nbsp; Umut Öztürk · Ömer Enes Yavuz · Alp Artun Aydın · Gülşen Karadağ**  
+**Team 3 &nbsp;|&nbsp; Umut Öztürk · Ömer Enes Yavuz · Alp Artun Aydın · Gülşen Karadağ**
+
+**Instructor: Bora Güngören** 
+[Course Repository →](https://github.com/boragungoren-portakalteknoloji/ATILIM-ECON484-Spring2026)
+
 *Atılım University — Spring 2026*
 
 ---
