@@ -47,6 +47,8 @@ def build(df: pd.DataFrame, market: str) -> pd.DataFrame:
     d["return_ma5"]       = d["log_return"].rolling(5).mean()
     d["return_ma20"]      = d["log_return"].rolling(20).mean()
     d["volatility_ratio"] = d["volatility_20"] / d["volatility_60"]
+    d["positive_days_10"] = (d["log_return"] > 0).rolling(10).sum() / 10
+    d["vol_acceleration"] = d["volatility_20"] - d["volatility_20"].shift(5)
     d["up_vol_ratio"]     = (
         d["log_return"].clip(lower=0).rolling(20).std() /
         (d["log_return"].rolling(20).std() + 1e-8)

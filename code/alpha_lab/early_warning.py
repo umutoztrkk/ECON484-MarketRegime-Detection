@@ -24,9 +24,6 @@ MARKETS       = ["sp500", "bist100", "dax"]
 REGIME_LABELS = {0: "Calm/Bull", 1: "Transition", 2: "Stress/Bear"}
 N_COMPONENTS  = 3
 
-# Sadece rejim sinyali taşıyan feature'lar
-# High, Low, Volume, volume_ma20 çıkarıldı — fiyat seviyesi ve ham hacim
-# GMM'i yanıltıyor, volatilite sinyalini boğuyor
 REGIME_FEATURES = [
     "log_return",
     "volatility_20",
@@ -38,8 +35,6 @@ REGIME_FEATURES = [
     "volatility_ratio",
 ]
 
-# Her borsa kendi dinamiğine göre ayrı GMM parametresi
-# BIST100: yapısal kırılmalar + fat-tail → reg_covar yüksek tutuldu
 MARKET_CONFIG = {
     "sp500":   {"covariance_type": "full", "reg_covar": 1e-4},
     "bist100": {"covariance_type": "full", "reg_covar": 1e-2},
@@ -76,9 +71,6 @@ def load_and_fit(market: str):
     df.loc[idx, "Regime"]      = raw_pred
     df.loc[idx, "Regime_Prob"] = gmm.predict_proba(X_sc).max(axis=1)
 
-    # Anchored label assignment: volatilite medyanı bazlı, market-agnostic
-    # Medyan kullanılıyor: fat-tail dağılımlarında ortalama spike'lardan bozulur
-    # Return kullanılmıyor: nominal return enflasyon ortamlarında yanıltıcı
     tmp = df.loc[idx].copy()
     tmp["Regime"] = tmp["Regime"].astype(int)
 
@@ -87,10 +79,11 @@ def load_and_fit(market: str):
         .median()
         .sort_values(ascending=True)
     )
+
     label_map = {
-        int(regime_med_vol.index[0]): 0,  # Calm/Bull  — en düşük medyan vol
-        int(regime_med_vol.index[1]): 1,  # Transition — orta medyan vol
-        int(regime_med_vol.index[2]): 2,  # Stress/Bear — en yüksek medyan vol
+        int(regime_med_vol.index[0]): 0,
+        int(regime_med_vol.index[1]): 1,
+        int(regime_med_vol.index[2]): 2,
     }
 
     df["Regime"]      = df["Regime"].map(label_map)
@@ -168,12 +161,10 @@ def plot_stress_distribution(df: pd.DataFrame, market: str):
         if len(sub) < 10:
             continue
 
-        # Her market için bandwidth otomatik hesapla (Scott's rule)
         kde    = gaussian_kde(sub, bw_method="scott")
         x_grid = np.linspace(0, 1, 500)
         y_kde  = kde(x_grid)
 
-        # Spike bastırma: 99. percentile üstünü kırp
         cap = np.percentile(y_kde, 99)
         y_kde = np.clip(y_kde, 0, cap)
 
