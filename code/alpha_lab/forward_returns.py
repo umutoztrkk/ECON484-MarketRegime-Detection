@@ -20,18 +20,19 @@ COLORS       = {"Calm/Bull": "#2ecc71", "Transition": "#f39c12", "Stress/Bear": 
 
 
 def load(market: str) -> pd.DataFrame:
-    gmm = pd.read_csv(DATA_DIR / "gmm_final_results.csv", parse_dates=["Date"])
-    raw = pd.read_csv(DATA_DIR / f"{market}_raw.csv", parse_dates=["Date"])
+    ew = pd.read_csv(ALPHA_DATA / f"early_warning_{market}.csv",
+                     parse_dates=["Date"])
+    ew = ew.rename(columns={"Regime_Name": "gmm_regime_label"})
 
-    close_col = [c for c in raw.columns if "close" in c.lower()][0]
-    raw = raw[["Date", close_col]].rename(columns={close_col: "Close"})
-    raw["Date"] = pd.to_datetime(raw["Date"])
 
-    df = gmm[gmm["market"] == market].merge(raw, on="Date", how="left")
-    df = df.sort_values("Date").reset_index(drop=True)
-    df["Close"] = pd.to_numeric(df["Close"], errors="coerce")
-    return df
+    if "Close" not in ew.columns:
+        raw = pd.read_csv(DATA_DIR / f"{market}_raw.csv", parse_dates=["Date"])
+        close_col = [c for c in raw.columns if "close" in c.lower()][0]
+        raw = raw[["Date", close_col]].rename(columns={close_col: "Close"})
+        ew  = ew.merge(raw, on="Date", how="left")
 
+    ew["Close"] = pd.to_numeric(ew["Close"], errors="coerce")
+    return ew.sort_values("Date").reset_index(drop=True)
 
 def compute_forward_returns(df: pd.DataFrame) -> pd.DataFrame:
     for h in HORIZONS:

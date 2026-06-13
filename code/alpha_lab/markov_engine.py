@@ -22,8 +22,10 @@ COLORS       = {"Calm/Bull": "#2ecc71", "Transition": "#f39c12", "Stress/Bear": 
 
 
 def load(market: str) -> pd.DataFrame:
-    df = pd.read_csv(DATA_DIR / "gmm_final_results.csv", parse_dates=["Date"])
-    return df[df["market"] == market].sort_values("Date").reset_index(drop=True)
+    path = ALPHA_DATA / f"early_warning_{market}.csv"
+    df   = pd.read_csv(path, parse_dates=["Date"])
+    df   = df.rename(columns={"Regime_Name": "gmm_regime_label"})
+    return df.sort_values("Date").reset_index(drop=True)
 
 
 def markov_matrix(df: pd.DataFrame) -> pd.DataFrame:
